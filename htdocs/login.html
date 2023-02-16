@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>명지니 로그인</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+</head>
+
+<body onresize="parent.resizeTo(500,600)" onload="parent.resizeTo(500,600)">
+    <form method="POST" action="loginProcess.php">
+        <div class="main-container">
+          	<header>
+          	    <div class="logo-wrap">
+          			     <img src="../assets/Logo2.png">
+          		  </div>
+          	</header>
+          	<section class="login-input-section-wrap">
+
+                  	<div class="login-input-wrap">
+
+                      	<input name="email" type="text" class="form-control" id="ID" placeholder="User ID"></input>
+                  	</div>
+
+                  	<div class="login-input-wrap password-wrap">
+
+                      		<input name="password" type="password" class="form-control" id="PASSWORD" placeholder="Password"></input>
+                  	</div>
+              		<div class="login-button-wrap">
+                  		<button type="submit">로그인</button>
+              		</div>
+          	</section>
+          	<footer>
+          		<div class="copyright-wrap">
+          			<span> MyongJini Copyright © MJCAMPUS Corp. All Rights Reserved.</span>
+          		</div>
+          	</footer>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Myeongenie</title>
+        <link rel="icon" type="image/x-icon" href="assets/Logo.png" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <!--<?php
+            $tmp = 1; //영화 첫 화면에서 포스터 클릭시 포스터의 랭킹 수는 받아와야 됨
+            $conn= mysqli_connect('localhost', 'root', 'ictdbdgkqrhdgkrrhk', 'testmovie'); //php에서 데이터베이스를 사용하기 위한 코드
+            $sql = "SELECT * FROM movie where ranking= '$tmp'"; // movie is table name
+            $result=mysqli_query($conn,$sql); //mysql 쿼리 실행
+            $board = mysqli_fetch_array($result) //result를 딕셔너리로 반환함, 배열의 인덱 -> 딕셔너리의 (key)
+            //딕셔너리 예 -> 배열 a = [1,2,3], a[1] = 1, 딕셔너리 b = [ name : 하연, age : 18], b['name'] = 하연석
+        ?> -->
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html">Myeongenie</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            </div>
+            <div class="container px-5">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="a.html">Activity</a></li>
+                        <li class="nav-item"><a class="nav-link" href="m.html">Movie</a></li>
+                        <li class="nav-item"><a class="nav-link" href="e.html">Exercise</a></li>
+                        <li class="nav-item"><a class="nav-link" href="t.html">Travel</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container px-5">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item"><a class="nav-link" href="htdocs/signup.html" onclick="window.open(this.href, '_blank', 'width=500px,height=600px,toolbars=no,scrollbars=no'); return false;">Sign Up</a></li>
+                      <li class="nav-item"><a class="nav-link" href="htdocs/login.html" onclick="window.open(this.href, '_blank', 'width=500px,height=600px,toolbars=no,scrollbars=no'); return false;">Log In</a></li>
+                      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="masthead text-center text-white">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn1"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85712/85712_1000.jpg" width="65%" height="65%"> </button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn2"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85712/85712_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn3"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85836/85836_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn4"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85780/85780_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn5"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85772/85772_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn6"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85791/85791_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn7"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85799/85799_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn8"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85787/85787_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn9"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85715/85715_1000.jpg" width="65%" height="65%"></button></div>
+                    <div class="swiper-slide"><button class="btn-img" type='button' id="modal_btn10"><img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85779/85779_1000.jpg" width="65%" height="65%"></button></div>
+                </div>
+
+                <!-- 네비게이션 -->
+                <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+            </div>
+        </header>
+        <!-- Modal -->
+        <div class="black_bg"></div>
+            <div class="modal_wrap1">
+                <span class="modal_close1">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178501</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap2">
+                <span class="modal_close2">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178502</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap3">
+                <span class="modal_close3">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178503</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap4">
+                <span class="modal_close4">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178504</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap5">
+                <span class="modal_close5">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178505</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap6">
+                <span class="modal_close6">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178506</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap7">
+                <span class="modal_close7">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178507</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap8">
+                <span class="modal_close8">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178508</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap9">
+                <span class="modal_close9">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>20178509</dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal_wrap10">
+                <span class="modal_close10">&times;</span>
+                <div>
+                    <dl class="modal_inner">
+                        <dt>코드</dt><dd>201785010  </dd>
+                        <dt>ISAN</dt><dd> " 해당정보 없음 " </dd>
+                        <dt>A.K.A.</dt><dd> 해당정보 없음</dd>
+                        <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 | 한국 " </dd>
+                        <dt>개봉일</dt><dd> <?php echo $board["openingdate"]?> </dd>
+                        <dt>제작연도</dt><dd> 2022년 </dd>
+                        <dt>제작상태</dt><dd> 개봉 </dd>
+                        <dt>크랭크인/업</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                        <dt>촬영회차</dt><dd> 해당정보없음 </dd>
+                        <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                    </dl>
+                </div>
+            </div>-->
+        <!-- Section -->
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85712/85712_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">니 부모 얼굴이 보고 싶다</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>1위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85712/85712_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">신비한 동물들과 덤블도어의 비밀</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>2위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85836/85836_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">서울괴담</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>3위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85780/85780_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">공기살인</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>4위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85772/85772_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">앵커</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>5위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85791/85791_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">세븐틴 파워 오브 러브 : 더 무비</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>6위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85799/85799_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">봄날</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>7위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85787/85787_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">로스트 시티</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>8위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85715/85715_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">더 컨트랙터</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>9위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="scroll">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="p-5">
+                                <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000085/85779/85779_1000.jpg" width="50%" height="50%">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5">
+                            <h2 class="display-6">수퍼 소닉2</h2>
+                            <dl class="modal_inner">
+                                <dt>순위</dt><dd>10위</dd>
+                                <dt>요약정보</dt><dd> " 장편 | 일반영화 | 드라마 | 111분 26초 | 15세이상관람가 " </dd>
+                                <dt>개봉일</dt><dd> 2022년 4월 7일</dd>
+                                <dt>제작상태</dt><dd> 개봉 </dd>
+                                <dt>촬영기간</dt><dd> 2017-05-29 ~ 2017-08-27 </dd>
+                                <dt>상영타입</dt><dd><strong>2D : </strong> " 디지털(20178501D) " </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-black">
+            <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Myungji College 2022</p></div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="js/modal.js"></script>
+    </body>
+</html>
